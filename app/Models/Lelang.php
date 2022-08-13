@@ -17,4 +17,9 @@ class Lelang extends Model
     {
         return $this->belongsTo(user_penjual::class);
     }
+
+    public function tawar()
+    {
+        return $this->hasMany(Tawar::class);
+    }
 }

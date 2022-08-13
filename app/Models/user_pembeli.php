@@ -35,10 +35,14 @@ class user_pembeli extends Model
         return $this->hasMany(cekout::class);
     }
 
-
     public function bayar()
     {
         return $this->hasMany(Pembayaran::class);
+    }
+
+    public function tawar()
+    {
+        return $this->hasMany(Tawar::class);
     }
 
 }

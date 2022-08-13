@@ -13,6 +13,8 @@ use App\Http\Controllers\Api\Auth\UserPenjualController;
 use App\Http\Controllers\Api\Auth\UserPembeliController;
 use App\Http\Controllers\Api\CekoutController;
 use App\Http\Controllers\Api\PembayaranController;
+use App\Http\Controllers\Api\TawarController;
+
 
 
 
@@ -103,6 +105,12 @@ Route::post('bayar', [PembayaranController::class, 'tambah_bayar']);
 Route::post('bayar/ambildata', [PembayaranController::class, 'databayar']);
 
 
+//tawar
+Route::post('tawar', [TawarController::class, 'tambah_tawar']);
+Route::post('tawar/ambildata', [TawarController::class, 'tawar']);
+Route::delete('deleteTawar/{tawar_id}', [TawarController::class, 'deletetawar']);
+
+//
 Route::post('tambah_stok', [TambahStokController::class, 'tambah_stok']);
 Route::delete('hapus_stok/{hps_stok}', [TambahStokController::class, 'hapus_stok']);
 
