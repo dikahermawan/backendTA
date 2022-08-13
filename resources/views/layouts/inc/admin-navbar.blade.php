@@ -1,7 +1,7 @@
 <nav class="sb-topnav navbar navbar-expand navbar-dark navatas">
             <!-- Navbar Brand-->
-            <!-- <a class="navbar-brand ps-3" href="index.html"><img class="imagelogo" src="img/logo.png"></a> -->
-            <a class="navbar-brand ps-3" href="{{ url('admin/dashboard') }}">Start RojoTani WEB </a>
+            <a class="navbar-brand" href="{{ url('admin/dashboard') }}"><img class="imagelogo" src="{{asset('public/assets/img/logo.png')}}"/></a>
+            <!-- <a class="navbar-brand ps-3" href="{{ url('admin/dashboard') }}"></a> -->
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0 navatas" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
 
@@ -15,11 +15,11 @@
             <!-- Navbar-->
 
             <ul class="navbar-nav ms-auto">
+            <!-- <a><i class="fas fa-bell"></i></a> -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="#!">Settings</a></li>
-                        <li><a class="dropdown-item" href="#!">Activity Log</a></li>
                         <li><hr class="dropdown-divider" /></li>
                         <li><a class="dropdown-item" href="#!">Logout</a></li>
                     </ul>

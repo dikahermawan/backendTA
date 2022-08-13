@@ -14,10 +14,10 @@
         </div>
         <div class="card-body">
             <div>
-                <a href="{{ url('admin/add-datapetani') }}" class="btn buttontambah"><i class="fas fa-plus"></i>Tambah Data</a>
-            </div>
-            <div>
+                <a href="{{ url('admin/add-datapetani') }}" class="btn buttontambah1"><i class="fas fa-plus"></i>   Tambah Data</a>
                 <a class="btn buttonrefresh">Refresh Data</a>
+                <input type="search" placeholder="Search..." class="searchkotak1"/>
+                <button class="buttonsearch"><i class="fa fa-search"></i></button>
             </div>
 
             @if (session('message'))
@@ -33,16 +33,16 @@
                         <th>Kontak</th>
                         <th>Nomor Rekening</th>
                         <th>Nama Rekening</th>
-                        <th>Image</th>
+                        <th>Foto KTP</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php $no = 0;?>
-                    @foreach ($userdata as $item)
+                    @foreach ($datapetani as $item)
                     <tr>
-                        <td>{{ ++$no; }}</td>
+                        <td>{{ ++$no }}</td>
                         <td>{{ $item->nama }}</td>
                         <td>{{ $item->alamat }}</td>
                         <td>{{ $item->kontak }}</td>

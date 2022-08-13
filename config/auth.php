@@ -45,6 +45,12 @@ return [
             'driver' => 'passport',
             'provider' => 'users',
         ],
+
+        'penjual' => [
+            'driver' => 'passport',
+            'provider' => 'penjuals',
+            'hash' => false,
+        ],
     ],
 
     /*
@@ -74,6 +80,11 @@ return [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
+
+        'penjuals' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Penjual::class,
+        ],
     ],
 
     /*
@@ -94,6 +105,13 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+
+        'penjuals' => [
+            'provider' => 'penjuals',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,

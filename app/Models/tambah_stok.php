@@ -9,5 +9,4 @@ class tambah_stok extends Model
 {
     use HasFactory;
     protected $guarded =['id'];
-
 }

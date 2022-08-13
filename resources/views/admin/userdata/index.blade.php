@@ -17,6 +17,9 @@
         <div class="card-body">
             <div>
                 <a href="{{ url('admin/add-userdata') }}" class="btn buttontambah"><i class="fas fa-plus"></i>  Tambah Data Pegawai</a>
+                <a class="btn buttoncetak1"><i class="fas fa-print"></i>  Cetak</a>
+                <input type="search" placeholder="Search..." class="searchkotak"/>
+                <button class="buttonsearch"><i class="fa fa-search"></i></button>
             </div>
 
             @if (session('message'))
@@ -39,12 +42,12 @@
                     <?php $no = 0;?>
                     @foreach ($userdata as $item)
                     <tr>
-                        <td>{{ ++$no; }}</td>
+                        <td>{{ ++$no }}</td>
                         <td>{{ $item->nama }}</td>
                         <td>{{ $item->email }}</td>
                         <td>{{ $item->role }}</td>
                         <td>
-                            <img src="{{ asset('uploads/userdata/'.$item->image) }}" width="50px" height="50px" alt="Img">
+                            <img src="{{ asset('public/uploads/userdata/'.$item->image) }}" width="50px" height="50px" alt="Img">
                         </td>
                         <td>{{ $item->status == '1' ? 'Hidden':'Shown' }}</td>
                         <td>

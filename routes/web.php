@@ -19,6 +19,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function () {
@@ -42,10 +43,35 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function () {
 
     Route::post('add-datapetani', [App\Http\Controllers\PetaniController::class, 'store']);
 
-    // Route::get('edit-pemilik/{datapetani_id}', [App\Http\Controllers\PetaniController::class, 'edit']);
+    Route::get('edit-datapetani/{datapetani_id}', [App\Http\Controllers\PetaniController::class, 'edit']);
 
-    // Route::put('update-pemilik/{datapetani_id}', [App\Http\Controllers\PetaniController::class, 'update']);
+    Route::put('update-datapetani/{datapetani_id}', [App\Http\Controllers\PetaniController::class, 'update']);
 
-    // Route::get('delete-pemilik/{datapetani_id}', [App\Http\Controllers\PetaniController::class, 'destroy']);
+    Route::get('delete-datapetani/{datapetani_id}', [App\Http\Controllers\PetaniController::class, 'destroy']);
+
+    Route::get('datapelanggan', [App\Http\Controllers\PelangganController::class, 'index']);
+
+    Route::get('pembayaran', [App\Http\Controllers\PembayaranController::class, 'index']);
+
+    Route::get('pesanan', [App\Http\Controllers\PesananController::class, 'index']);
+
+    Route::get('laporan', [App\Http\Controllers\LaporanController::class, 'index']);
+
+    Route::get('produklelang', [App\Http\Controllers\ProdukLelangController::class, 'index']);
+
+    Route::get('produk', [App\Http\Controllers\ProdukController::class, 'index']);
+
+    Route::get('role', [App\Http\Controllers\RoleController::class, 'index']);
+
+    Route::get('create-role', [App\Http\Controllers\RoleController::class, 'create']);
+
+    Route::post('add-role', [App\Http\Controllers\RoleController::class, 'store']);
+
+    Route::get('edit-role/{role_id}', [App\Http\Controllers\RoleController::class, 'edit']);
+
+    Route::put('update-role/{role_id}', [App\Http\Controllers\RoleController::class, 'update']);
+
+    Route::get('delete-role/{role_id}', [App\Http\Controllers\RoleController::class, 'destroy']);
 
 });
+

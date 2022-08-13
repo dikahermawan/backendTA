@@ -2390,43 +2390,54 @@ progress {
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.search {
-    width: 100%;
-    margin-top: -52px;
-    margin-left: 172px;
-    display: flex;
+.searchkotak{
+    border-color:#A2A4A2;
+    width: 220px;
+    height: 41px;
+    font-size: 16px;
+    border-radius: 8px 0 0 8px;
+    background-color: #F5F3F3;
+    margin-bottom: 30px;
+
 }
 
-.searchTerm {
-    width: 100%;
-    border: 3px solid #c5c5c5;
-    padding: 5px;
-    height: 38px;
-    border-radius: 5px 0 0 5px;
-    outline: none;
-    color: #9DBFAF;
+.searchkotak1{
+    border-color:#A2A4A2;
+    width: 220px;
+    height: 41px;
+    font-size: 16px;
+    border-radius: 8px 0 0 8px;
+    background-color: #F5F3F3;
+    margin-bottom: 28px;
+    margin-left: 50%;
 }
 
-.searchTerm:focus {
-    color: #c5c5c5;
+.searchkotak2{
+    border-color:#A2A4A2;
+    width: 220px;
+    height: 41px;
+    font-size: 16px;
+    border-radius: 8px 0 0 8px;
+    background-color: #F5F3F3;
+    margin-bottom: 28px;
+    margin-left: 64%;
 }
 
-.searchButton {
+
+.buttonsearch {
+    color: #fff;
+    background-color: #787878;
+    border-color: #787878;
     width: 40px;
-    height: 38px;
-    border: 1px solid #c5c5c5;
-    background: #c5c5c5;
-    text-align: center;
-    color: #fff;
-    border-radius: 0 5px 5px 0;
-    font-size: 20px;
-    margin-left: 10px;
+    height: 40px;
+    border-radius: 0 8px 8px 0;
+    font-size: 16px;
 }
 
-.searchbutton:hover {
+.buttonsearch:hover {
     color: #fff;
-    background-color: #e7e7e7;
-    border-color: #e7e7e7;
+    background-color: #787878;
+    border-color: #787878;
 }
 
 
@@ -3553,6 +3564,27 @@ fieldset:disabled .btn {
     border-color: #48aa6c;
 }
 
+.buttontambah1 {
+    color: #fff;
+    background-color: #53B175;
+    border-color: #53B175;
+    width: 145px;
+    height: 40px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 15px;
+    margin-bottom: 17px;
+    margin-right: 7px;
+    text-align: center;
+}
+
+.buttontambah1:hover {
+    color: #fff;
+    background-color: #48aa6c;
+    border-color: #48aa6c;
+}
+
 /* th{
     text-align: center;
 } */
@@ -3588,16 +3620,78 @@ fieldset:disabled .btn {
     background-color: #53B175;
     border-color: #53B175;
     width: 125px;
-    height: 38px;
+    height: 40px;
     border-radius: 8px;
     font-size: 16px;
     font-weight: 400;
-    margin-top: 10px;
-    margin-bottom: 17px;
     text-align: center;
 }
 
 .buttonrefresh:hover {
+    color: #fff;
+    background-color: #48aa6c;
+    border-color: #48aa6c;
+}
+
+.buttonrefresh1 {
+    color: #fff;
+    background-color: #53B175;
+    border-color: #53B175;
+    width: 125px;
+    height: 40px;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: 400;
+    margin-top: 15px;
+    margin-bottom: 17px;
+    text-align: center;
+}
+
+.buttonrefresh1:hover {
+    color: #fff;
+    background-color: #48aa6c;
+    border-color: #48aa6c;
+}
+
+.buttoncetak {
+    color: #fff;
+    background-color: #53B175;
+    border-color: #53B175;
+    width: 100px;
+    height: 40px;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: 400;
+    margin-top: 15px;
+    margin-bottom: 17px;
+    text-align: center;
+    margin-left: 56%;
+    margin-right: 10px;
+}
+
+.buttoncetak:hover {
+    color: #fff;
+    background-color: #48aa6c;
+    border-color: #48aa6c;
+}
+
+.buttoncetak1 {
+    color: #fff;
+    background-color: #53B175;
+    border-color: #53B175;
+    width: 100px;
+    height: 40px;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: 400;
+    margin-top: 15px;
+    margin-bottom: 17px;
+    text-align: center;
+    margin-left: 50%;
+    margin-right: 10px;
+}
+
+.buttoncetak1:hover {
     color: #fff;
     background-color: #48aa6c;
     border-color: #48aa6c;
@@ -12841,6 +12935,14 @@ body {
 }
 
 .imagelogo {
+    width: 90px;
+    height: 45px;
+    margin-left: 50px;
+    padding-top: 0px;
+    color: white;
+}
+
+.imagelogo2 {
     width: 90px;
     height: 45px;
     margin-left: 50px;
