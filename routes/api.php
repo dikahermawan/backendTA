@@ -93,7 +93,7 @@ Route::get('getlelangall', [LelangController::class, 'tampil_semua']);
 Route::post('getlelang', [LelangController::class, 'tampil_lelang']);
 Route::post('lelang/edit', [LelangController::class, 'edit_lelang']);
 Route::post('lelang/update', [LelangController::class, 'update_lelang']);
-Route::delete('deleteLelang/{lelang_id}', [LelangController::class, 'deletelelang']);
+Route::delete('deleteLelang/{lelang_id}', [LelangController::class, 'deleteLelang']);
 
 
 //cekout

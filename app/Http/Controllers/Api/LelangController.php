@@ -125,7 +125,7 @@ class LelangController extends Controller
             ], 201);
     }
 
-    public function deletelelang($id){
+    public function deleteLelang($id){
         $lelang = Lelang::find($id);
         $lelang->delete();
         return response()->json(['message'=>'produk berhasil dihapus']);
