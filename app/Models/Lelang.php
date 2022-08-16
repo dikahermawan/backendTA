@@ -22,4 +22,9 @@ class Lelang extends Model
     {
         return $this->hasMany(Tawar::class);
     }
+
+    // public function tawar()
+    // {
+    //     return $this->belongsTo(Tawar::class);
+    // }
 }

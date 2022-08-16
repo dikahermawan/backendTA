@@ -96,6 +96,12 @@ Route::post('lelang/update', [LelangController::class, 'update_lelang']);
 Route::delete('deleteLelang/{lelang_id}', [LelangController::class, 'deleteLelang']);
 
 
+Route::post('lelang/ambildata', [LelangController::class, 'data']); //digunaka untuk ambil data
+Route::post('ambildatatawar', [LelangController::class, 'getdata']); //digunaka untuk ambil data
+Route::post('editstatus', [LelangController::class, 'edit_status']);
+Route::post('status/update', [LelangController::class, 'update_status']);
+
+
 //cekout
 Route::post('cekout', [CekoutController::class, 'tambah_cekout']);
 Route::post('cekout/ambilproduk', [CekoutController::class, 'cekout']);
@@ -109,6 +115,20 @@ Route::post('bayar/ambildata', [PembayaranController::class, 'databayar']);
 Route::post('tawar', [TawarController::class, 'tambah_tawar']);
 Route::post('tawar/ambildata', [TawarController::class, 'tawar']);
 Route::delete('deleteTawar/{tawar_id}', [TawarController::class, 'deletetawar']);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //
 Route::post('tambah_stok', [TambahStokController::class, 'tambah_stok']);

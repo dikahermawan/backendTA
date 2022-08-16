@@ -22,4 +22,5 @@ class Produk extends Model
     {
         return $this->hasMany(cekout::class);
     }
+
 }

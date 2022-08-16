@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Validator;
 use App\Models\Lelang;
+use App\Models\Tawar;
+
 
 class LelangController extends Controller
 {
@@ -129,6 +131,66 @@ class LelangController extends Controller
         $lelang = Lelang::find($id);
         $lelang->delete();
         return response()->json(['message'=>'produk berhasil dihapus']);
+    }
+
+
+    public function data(Request $request){
+
+
+        $lelangs = Lelang::find($request->lelang_id);
+
+
+        $tawar = new Tawar();
+        $tawar = $tawar->where('lelang_id', $request->lelang_id)->get();
+
+        $tawars = Tawar::find($request->tawar_id);
+
+
+        $data=[
+            "lelang"=>$lelangs,
+            "tawar"=>$tawar,
+            "tawars"=>$tawars,
+
+        ];
+        return response()->json($data);
+        // return response()->json([
+        //     "lelang"=>$lelangs,
+        //     "tawar"=>$tawar,
+        // ], 200);
+    }
+
+    public function getdata(Request $request){
+
+        $tawar = new Tawar();
+        $tawar = $tawar->where('lelang_id', $request->lelang_id)->get();
+
+        $data=[
+            'success' => 1,
+            "message"=>"Berhasil ditampilkan",
+            "status"=>200,
+            "tawar"=>$tawar,
+        ];
+        return response()->json($tawar);
+    }
+
+
+    public function edit_status(Request $request){
+        $status = Tawar::find($request->tawar_id);
+
+        return response()->json($status);
+    }
+
+    public function update_status(Request $request)
+    {
+        $status = Tawar::find($request->tawar_id);
+        $status->status_tawar = $request->status_tawar;
+        $status->update();
+
+        return response()->json([
+            'status' => $status,
+            'success' => 1,
+            'message' => 'Berhasil Ditambahkan'
+        ], 201);
     }
 
 }

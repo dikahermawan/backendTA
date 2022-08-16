@@ -51,7 +51,7 @@ class TawarController extends Controller
         $alamat = $pembeli->alamat;
         $nama_pembeli = $pembeli->nama;
 
-        $gambar = $lelang->gambar;
+        $gambar = $pembeli->gambar;
 
 
         $tawar = Tawar::create([

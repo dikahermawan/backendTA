@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Validator;
 use App\Models\Produk;
 
+
 class ProdukController extends Controller
 {
     //
