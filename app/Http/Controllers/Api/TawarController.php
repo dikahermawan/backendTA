@@ -30,6 +30,16 @@ class TawarController extends Controller
         ], 200);
     }
 
+    public function tampil_tawar(Request $request){
+        $tawar = Tawar::find($request->tawar_id);
+
+        $data=[
+            "tawar"=>$tawar,
+        ];
+         return response()->json($tawar);
+
+    }
+
     public function tambah_tawar(Request $request)
     {
         // proses validasi

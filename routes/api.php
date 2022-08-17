@@ -56,6 +56,8 @@ Route::post('regpembeli', [UserPembeliController::class, 'register_pembeli']);
 Route::post('logpembeli', [UserPembeliController::class, 'login_pembeli']);
 Route::post('updatepembeli', [UserPembeliController::class, 'updatePassword1']);
 Route::post('getpembeli', [UserPembeliController::class, 'get_pembeli']);
+Route::post('profilPembeli', [UserPembeliController::class, 'updateProfil1']);
+
 
 
 
@@ -115,6 +117,8 @@ Route::post('bayar/ambildata', [PembayaranController::class, 'databayar']);
 Route::post('tawar', [TawarController::class, 'tambah_tawar']);
 Route::post('tawar/ambildata', [TawarController::class, 'tawar']);
 Route::delete('deleteTawar/{tawar_id}', [TawarController::class, 'deletetawar']);
+Route::post('datatawarid', [TawarController::class, 'tampil_tawar']);
+
 
 
 

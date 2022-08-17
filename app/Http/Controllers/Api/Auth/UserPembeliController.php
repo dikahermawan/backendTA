@@ -25,8 +25,11 @@ class UserPembeliController extends Controller
                 'pesan'     =>$validator->errors()], 401);
         }
 
+        $gambars = $request->file('gambar')->getClientOriginalName();
+        $pathimg = $request->file('gambar')->move('img/userpembeli', $gambars);
+
         $user = new user_pembeli([
-            'gambar' => $request->gambar,
+            'gambar' => $gambars,
             'nama' => $request->nama,
             'alamat' => $request->alamat,
             'email' => $request->email,
@@ -149,4 +152,37 @@ class UserPembeliController extends Controller
             'message' => $pesan
         ]);
     }
+
+    public function updateProfil1(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'nama'=> 'required',
+            'alamat'=> 'required',
+            // 'no_rekening'=> 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'success'   => 0,
+                'message'     =>$validator->errors()], 401);
+        }
+
+        $gambars = $request->file('gambar')->getClientOriginalName();
+        $pathimg = $request->file('gambar')->move('img/userpembeli', $gambars);
+
+        $pembeli = user_pembeli::find($request->pembeli_id);
+        $pembeli->nama = $request->nama;
+        $pembeli->gambar = $gambars;
+
+        $pembeli->alamat =  $request->alamat;
+        // $pembeli->no_rekening =  $request->no_rekening;
+        $pembeli->update();
+
+        return response()->json([
+            'pembeli' => $pembeli,
+            'success' => 1,
+            'message' => 'Berhasil Ditambahkan'
+        ], 201);
+    }
+
 }
