@@ -46,7 +46,7 @@ Route::get('logout', [AuthController::class, 'logout']);
 
 Route::post('regpenjual', [UserPenjualController::class, 'register_penjual']);
 Route::post('logpenjual', [UserPenjualController::class, 'login_penjual']);
-Route::get('datapenjual/{id}', [UserPenjualController::class, 'get_penjual']);
+Route::post('datapenjual', [UserPenjualController::class, 'get_penjual']);
 Route::post('updatepenjual', [UserPenjualController::class, 'updatePassword']);
 Route::post('editProfilPjl', [UserPenjualController::class, 'edit_profil']);
 Route::post('profilPenjual', [UserPenjualController::class, 'updateProfil']);

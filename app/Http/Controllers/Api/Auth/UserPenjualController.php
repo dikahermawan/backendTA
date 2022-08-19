@@ -82,14 +82,24 @@ class UserPenjualController extends Controller
         return $this->error('Anda Tidak Terdaftar');
     }
 
-    public function get_penjual($id){
-        $user = user_penjual::find($id);
+    // public function get_penjual($id){
+    //     $user = user_penjual::find($id);
+    //     $data=[
+    //         "msg"=>"Berhasil",
+    //         "status"=>200,
+    //         "data"=>$user,
+    //     ];
+    //     return response()->json($data);
+    // }
+
+    public function get_penjual(Request $request){
+        $user = user_penjual::find($request->penjual_id);
+
         $data=[
-            "msg"=>"Berhasil",
-            "status"=>200,
-            "data"=>$user,
+            "user"=>$user,
         ];
-        return response()->json($data);
+         return response()->json($user);
+
     }
 
     public function get_all(){

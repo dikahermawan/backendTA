@@ -11,7 +11,7 @@ class Lelang extends Model
 
     protected $table = "lelangs";
     protected $primaryKey = "id";
-    protected $fillable = ['id','penjual_id','gambar','nama','harga','satuan','jenis','deskripsi','waktu', 'status'];
+    protected $fillable = ['id','penjual_id','gambar','nama','harga','jumlah', 'satuan','jenis','deskripsi','waktu', 'status'];
 
     public function penjual()
     {

@@ -38,6 +38,7 @@ class LelangController extends Controller
         'penjual_id'=> $request->penjual_id,
         'nama' => $request->nama,
         'harga'=> $request->harga,
+        'jumlah'=> $request->jumlah,
         'satuan'=>$request->satuan,
         'jenis'=>$request->jenis,
         'deskripsi'=>$request->deskripsi,
@@ -113,6 +114,7 @@ class LelangController extends Controller
         $lelang = Lelang::find($request->lelang_id);
         $lelang->nama = $request->nama;
         $lelang->harga = $request->harga;
+        $lelang->jumlah = $request->jumlah;
         $lelang->satuan = $request->satuan;
         $lelang->jenis = $request->jenis;
         $lelang->deskripsi = $request->deskripsi;
