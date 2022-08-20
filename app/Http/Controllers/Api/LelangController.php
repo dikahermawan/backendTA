@@ -164,7 +164,8 @@ class LelangController extends Controller
     public function getdata(Request $request){
 
         $tawar = new Tawar();
-        $tawar = $tawar->where('lelang_id', $request->lelang_id)->get();
+        $tawar = $tawar->where('lelang_id', $request->lelang_id)
+        ->where('status_tawar', 'dipilih')->get();
 
         $data=[
             'success' => 1,

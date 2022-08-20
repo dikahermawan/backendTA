@@ -72,7 +72,7 @@ class TawarController extends Controller
             'gambar'         => $gambar,
             'harga_tawar'    => $request->harga_tawar,
 
-            // 'status_tawar' => $request->input('status_pesanan'),
+            'status_tawar'   => "dipilih",
         ]);
 
         // pengondisian sukses

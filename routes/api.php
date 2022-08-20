@@ -55,7 +55,7 @@ Route::post('profilPenjual', [UserPenjualController::class, 'updateProfil']);
 Route::post('regpembeli', [UserPembeliController::class, 'register_pembeli']);
 Route::post('logpembeli', [UserPembeliController::class, 'login_pembeli']);
 Route::post('updatepembeli', [UserPembeliController::class, 'updatePassword1']);
-Route::post('getpembeli', [UserPembeliController::class, 'get_pembeli']);
+Route::post('datapembeli', [UserPembeliController::class, 'get_pembeli']);
 Route::post('profilPembeli', [UserPembeliController::class, 'updateProfil1']);
 
 
@@ -107,6 +107,20 @@ Route::post('status/update', [LelangController::class, 'update_status']);
 //cekout
 Route::post('cekout', [CekoutController::class, 'tambah_cekout']);
 Route::post('cekout/ambilproduk', [CekoutController::class, 'cekout']);
+Route::post('status/belum', [CekoutController::class, 'getbelum']);
+Route::post('status/kemas', [CekoutController::class, 'getkemas']);
+Route::post('status/kirim', [CekoutController::class, 'getkirim']);
+Route::post('status/terima', [CekoutController::class, 'getterima']);
+Route::post('cekout/status', [CekoutController::class, 'status_pesanan']);
+
+
+Route::post('kemas', [CekoutController::class, 'kemas']); //untuk petani
+Route::post('kirim', [CekoutController::class, 'kirim']); //untuk petani
+Route::post('terima', [CekoutController::class, 'terima']); //untuk petani
+
+
+
+
 
 //bayar
 Route::post('bayar', [PembayaranController::class, 'tambah_bayar']);

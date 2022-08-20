@@ -11,7 +11,7 @@ class cekout extends Model
     protected $guarded =['id'];
     protected $table = "cekouts";
     protected $primaryKey = "id";
-    protected $fillable = ['id','pembeli_id','produk_id','gambar','nama_pembeli','no_rekening','jumlah','ongkir','harga','alamat','subtotal','total_bayar','catatan','status_pesanan',];
+    protected $fillable = ['id','pembeli_id','penjual_id','produk_id','nama_produk','gambar','nama_pembeli','no_rekening','jumlah','ongkir','harga','alamat','subtotal','total_bayar','catatan','status_pesanan',];
 
     public function pembeli()
     {

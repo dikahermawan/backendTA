@@ -12,6 +12,7 @@ use App\Models\Produk;
 class CekoutController extends Controller
 {
 
+    //untuk mengambil data
     public function cekout(Request $request){
         $produk = Produk::find($request->produk_id);
         $pembeli = user_pembeli::find($request->pembeli_id);
@@ -65,10 +66,13 @@ class CekoutController extends Controller
 
         $gambar = $produk->gambar;
 
+        $nama_produk = $produk->nama;
+
 
         $cekout = cekout::create([
             'pembeli_id'     => $request->pembeli_id,
             'produk_id'      => $request->produk_id,
+            'nama_produk'    => $nama_produk,
             'ongkir'         => $ongkir,
             'harga'          => $harga,
             'alamat'         => $alamat,
@@ -79,7 +83,7 @@ class CekoutController extends Controller
             'total_bayar'    => $total_bayar,
             'catatan'        => $request->catatan,
             'gambar'         => $gambar,
-            // 'status_pesanan' => $request->input('status_pesanan'),
+            'status_pesanan' => 'belum bayar',
         ]);
 
         // pengondisian sukses
@@ -99,4 +103,154 @@ class CekoutController extends Controller
             ], 401);
         }
     }
+
+
+
+
+    public function getbelum(Request $request){
+
+        $cekout = new cekout();
+        $cekout = $cekout->where('pembeli_id', $request->pembeli_id)
+        ->where('status_pesanan', 'belum bayar')->get();
+
+        $data=[
+            'success' => 1,
+            "message"=>"Berhasil ditampilkan",
+            "status"=>200,
+            "cekout"=>$cekout,
+        ];
+        return response()->json($cekout);
+    }
+
+    public function getkemas(Request $request){
+
+
+        $cekout = new cekout();
+        $cekout = $cekout->where('pembeli_id', $request->pembeli_id)
+        ->where('status_pesanan', 'dikemas')->get();
+
+        $data=[
+            'success' => 1,
+            "message"=>"Berhasil ditampilkan",
+            "status"=>200,
+            "cekout"=>$cekout,
+        ];
+        return response()->json($cekout);
+        // return response()->json([
+        //     'cekout' => $cekout,
+        //     'produk' => $produk,
+        // ], 200);
+    }
+
+
+    public function getkirim(Request $request){
+
+        $cekout = new cekout();
+        $cekout = $cekout->where('pembeli_id', $request->pembeli_id)
+        ->where('status_pesanan', 'dikirim')->get();
+
+        $data=[
+            'success' => 1,
+            "message"=>"Berhasil ditampilkan",
+            "status"=>200,
+            "cekout"=>$cekout,
+        ];
+        return response()->json($cekout);
+    }
+
+
+    public function getterima(Request $request){
+
+        $cekout = new cekout();
+        $cekout = $cekout->where('pembeli_id', $request->pembeli_id)
+        ->where('status_pesanan', 'diterima')->get();
+
+        $data=[
+            'success' => 1,
+            "message"=>"Berhasil ditampilkan",
+            "status"=>200,
+            "cekout"=>$cekout,
+        ];
+        return response()->json($cekout);
+    }
+
+
+    public function status_pesanan(Request $request)
+    {
+        $status = cekout::find($request->cekout_id);
+        $status->status_pesanan = $request->status_pesanan;
+        $status->update();
+
+        return response()->json([
+            'status' => $status,
+            'success' => 1,
+            'message' => 'Berhasil Ditambahkan'
+        ], 201);
+    }
+
+
+    public function kemas(Request $request){
+
+        //api data cekout untuk halaman petani
+        // menampilkan data cekout sesuai id petani
+
+        $cekout= cekout::select('cekouts.id as id','cekouts.gambar as gambar', 'cekouts.nama_produk as nama_produk','cekouts.jumlah as jumlah', 'cekouts.total_bayar as total_bayar', 'cekouts.alamat as alamat', 'cekouts.catatan as catatan', 'cekouts.nama_pembeli as nama_pembeli')
+        ->join('produks','produks.id','=','cekouts.produk_id')
+        ->join('user_penjuals','user_penjuals.id','=','produks.penjual_id')
+        ->where('produks.penjual_id', $request->penjual_id)
+        ->where('cekouts.status_pesanan', 'dikemas')
+        ->get();
+
+        $data=[
+            'success' => 1,
+            "message"=>"Berhasil ditampilkan",
+            "status"=>200,
+            "cekout"=>$cekout,
+        ];
+        return response()->json($cekout);
+    }
+
+
+    public function kirim(Request $request){
+
+        //api data cekout untuk halaman petani
+        // menampilkan data cekout sesuai id petani
+
+        $cekout= cekout::select('cekouts.id as id','cekouts.gambar as gambar', 'cekouts.nama_produk as nama_produk','cekouts.jumlah as jumlah', 'cekouts.total_bayar as total_bayar', 'cekouts.alamat as alamat', 'cekouts.catatan as catatan', 'cekouts.nama_pembeli as nama_pembeli')
+        ->join('produks','produks.id','=','cekouts.produk_id')
+        ->join('user_penjuals','user_penjuals.id','=','produks.penjual_id')
+        ->where('produks.penjual_id', $request->penjual_id)
+        ->where('cekouts.status_pesanan', 'dikirim')
+        ->get();
+
+        $data=[
+            'success' => 1,
+            "message"=>"Berhasil ditampilkan",
+            "status"=>200,
+            "cekout"=>$cekout,
+        ];
+        return response()->json($cekout);
+    }
+
+    public function terima(Request $request){
+
+        //api data cekout untuk halaman petani
+        // menampilkan data cekout sesuai id petani
+
+        $cekout= cekout::select('cekouts.id as id','cekouts.gambar as gambar', 'cekouts.nama_produk as nama_produk','cekouts.jumlah as jumlah', 'cekouts.total_bayar as total_bayar', 'cekouts.alamat as alamat', 'cekouts.catatan as catatan', 'cekouts.nama_pembeli as nama_pembeli')
+        ->join('produks','produks.id','=','cekouts.produk_id')
+        ->join('user_penjuals','user_penjuals.id','=','produks.penjual_id')
+        ->where('produks.penjual_id', $request->penjual_id)
+        ->where('cekouts.status_pesanan', 'diterima')
+        ->get();
+
+        $data=[
+            'success' => 1,
+            "message"=>"Berhasil ditampilkan",
+            "status"=>200,
+            "cekout"=>$cekout,
+        ];
+        return response()->json($cekout);
+    }
+
 }

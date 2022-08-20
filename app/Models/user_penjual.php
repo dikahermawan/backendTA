@@ -39,4 +39,5 @@ class user_penjual extends Model
      {
          return $this->hasMany(Lelang::class);
      }
+
 }

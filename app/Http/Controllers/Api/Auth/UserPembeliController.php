@@ -25,11 +25,11 @@ class UserPembeliController extends Controller
                 'pesan'     =>$validator->errors()], 401);
         }
 
-        $gambars = $request->file('gambar')->getClientOriginalName();
-        $pathimg = $request->file('gambar')->move('img/userpembeli', $gambars);
+        // $gambars = $request->file('gambar')->getClientOriginalName();
+        // $pathimg = $request->file('gambar')->move('img/userpembeli', $gambars);
 
         $user = new user_pembeli([
-            'gambar' => $gambars,
+            // 'gambar' => $gambars,
             'nama' => $request->nama,
             'alamat' => $request->alamat,
             'email' => $request->email,
@@ -90,14 +90,24 @@ class UserPembeliController extends Controller
         // return response()->json($data);
     // }
 
+    // public function get_pembeli(Request $request){
+    //     $user = user_pembeli::find($request->pembeli_id);
+    //     $data=[
+    //         "msg"=>"Berhasil",
+    //         "status"=>200,
+    //         "data"=>$user,
+    //     ];
+    //     return response()->json($data);
+    // }
+
     public function get_pembeli(Request $request){
         $user = user_pembeli::find($request->pembeli_id);
+
         $data=[
-            "msg"=>"Berhasil",
-            "status"=>200,
-            "data"=>$user,
+            "user"=>$user,
         ];
-        return response()->json($data);
+         return response()->json($user);
+
     }
 
     public function get_all(){

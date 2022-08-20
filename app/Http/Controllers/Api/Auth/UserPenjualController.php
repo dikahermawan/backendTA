@@ -25,11 +25,11 @@ class UserPenjualController extends Controller
                 'success'   => 0,
                 'pesan'     =>$validator->errors()], 401);
         }
-        $image = $request->file('gambar')->getClientOriginalName();
-        $imgpath = $request->file('gambar')->move('img/userpenjual', $image);
+        // $image = $request->file('gambar')->getClientOriginalName();
+        // $imgpath = $request->file('gambar')->move('img/userpenjual', $image);
 
         $user = new user_penjual([
-            'gambar' => $image,
+            // 'gambar' => $image,
             'nama' => $request->nama,
             'alamat' => $request->alamat,
             'no_rekening' => $request->no_rekening,
